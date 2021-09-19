@@ -17,6 +17,12 @@ class FlipkartProduct:
         currency = curr_price[0]
         self.price = int(curr_price[1:].replace(',', ''))
         
+        self.qna = [
+                {'question':question.find('div',class_='_1xR0kG _3cziW5').find_all('span')[1].text,
+                    'answer':question.find('div', class_='_2yeNfb').find_all('span')[1].text}
+                for question in qna
+                ]
+        
         try:
             prev_price = soup.find('div', class_='_3I9_wc _2p6lqe').text
             self.prev_price_amnt = int(prev_price[1:].replace(',', ''))
