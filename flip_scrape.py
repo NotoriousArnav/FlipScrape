@@ -21,7 +21,7 @@ class FlipkartProduct:
                 {'question':question.find('div',class_='_1xR0kG _3cziW5').find_all('span')[1].text,
                     'answer':question.find('div', class_='_2yeNfb').find_all('span')[1].text}
                 for question in qna
-                ]
+        ]
         
         try:
             prev_price = soup.find('div', class_='_3I9_wc _2p6lqe').text
