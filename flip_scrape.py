@@ -27,6 +27,9 @@ class FlipkartProduct:
                 for question in qna
         ]
         
+        offers = soup.find('div', class_='XUp0WS')
+        self.offers = [offer.text for offer in offers.find_all('span', class_='_3j4Zjq row')]
+        
         try:
             prev_price = soup.find('div', class_='_3I9_wc _2p6lqe').text
             self.prev_price_amnt = int(prev_price[1:].replace(',', ''))
