@@ -12,7 +12,11 @@ class FlipkartProduct:
         self.prod_name = title_span.text
 
         self.rating = soup.find('div', class_='_3LWZlK').text
-        self.rNr = tuple([int(x) for x in soup.find('span',class_='_2_R_DZ').text.replace('\xa0', '').replace('Ratings','').replace('Reviews', '').replace(',', '').split('&')]) 
+        self.rNr = tuple(
+            [int(x) 
+             for x in soup.find('span',class_='_2_R_DZ').text.replace('\xa0', '').replace('Ratings','').replace('Reviews', '').replace(',', '').split('&')
+            ]
+        ) 
         curr_price = soup.find('div', class_='_30jeq3 _16Jk6d').text
         currency = curr_price[0]
         self.price = int(curr_price[1:].replace(',', ''))
